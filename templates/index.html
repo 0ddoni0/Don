@@ -17,14 +17,7 @@
             {% endif %}
             <a href="{{url_for('signup')}}">Sign Up</a>
             <div class="col-md-8">
-                <h2>Last News</h2>
-                {% if news %}
-                    {% for m in news %}
-                    <p>{{m.data}}</p>
-                    {% endfor %}
-                {% else %}
-                    <p>No any news</p>
-                {% endif %}
+
             </div>
         </div>
     </div>
