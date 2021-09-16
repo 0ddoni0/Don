@@ -20,6 +20,11 @@ def signup():
 def sendFile(path):
     return send_from_directory('static', path)
 
+@app.route("/about")
+def getabout():
+    return render_template('about.html')
+
+
 
 if __name__ == "__main__":
     app.run()
