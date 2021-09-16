@@ -21,10 +21,5 @@ def sendFile(path):
     return send_from_directory('static', path)
 
 
-@app.route('/favicon.ico')
-def sendFavicon():
-    url_for('static', filename='favicon.ico')
-
-
 if __name__ == "__main__":
     app.run()
