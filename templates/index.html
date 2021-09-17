@@ -1,25 +1,35 @@
 {% extends "base.html" %}
-
 {% block title %}Pineappleenger | Home{% endblock %}
 
 {% block content %}
 
     <div class="container">
-
         <div class="row">
-            <h2>If you want to use this messenger, please login or sign up!</h2>
             {% if not 'logged_in' in session %}
-            <form id="loginform" method="post">
-                <input type="email" name="email" required>
-                <input type="password" name="password" required>
-                <input type="submit">
+            <div class="login">
+                <h3>Log in</h3><br>
+            <form action="/login" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-100">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" required>
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password" required>
+                    </div>
+                </div>
+                 <button type="submit" class="btn btn-primary">Log in</button>
             </form>
+            {% else %}
+                <div class="message_block">
+                    {% for message in messages %}
+                    <div class="msg_author"><p>{{message.author}}</p></div>
+                    <div class="msg_text"><p>{{message.text}}</p></div>
+                    {% endfor %}
+                </div>
             {% endif %}
-            <a href="{{url_for('signup')}}">Sign Up</a>
             <div class="col-md-8">
-
             </div>
         </div>
     </div>
-
+    </div>
 {% endblock %}
